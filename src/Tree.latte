@@ -1,0 +1,35 @@
+<div class="stripe">
+    <div class="stripe-left">
+    </div>
+    <div class="stripe-center">
+        <span class="stripe-center-bg">
+            <span class="stripe-center-bg-1"></span>
+            <span class="stripe-center-bg-2"></span>
+        </span>
+        <span class="page-claim">{* Staneš se mojí ženou ? *}{control config:text 'svatebni-a-spolecenske-claim'}</span>
+        <main>
+            <div class="inner">
+                <div class="content-navs">
+                    <nav class="content-nav">
+                        <ul>
+                            {foreach $level0 as $item}
+                                <li><a n:href="SvatebniASpolecenske:default, $item->id" n:class="$item->id == $levelId ? active">{$item->name}</a></li>
+                            {/foreach}
+                            <li n:if="$iterations==0" class="empty"><span>{* Navigace neobsahuje položky *}{control config:text 'no-items'}</span></li>
+                        </ul>
+                    </nav>
+                    <nav class="content-subnav">
+                        <ul>
+                            {foreach $level1 as $item}
+                                <li><a n:href="SvatebniASpolecenske:detail, $item->id" class="hoverbox" data-hoverbox="{$item->id}">{$item->name}</a></li>
+                            {/foreach}
+                            <li n:if="$iterations==0" class="empty"><span>{* Navigace neobsahuje položky *}{control config:text 'no-items'}</span></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="stripe-right">
+    </div>
+</div>
